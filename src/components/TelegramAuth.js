@@ -24,14 +24,19 @@ const TelegramAuth = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <h1>Login with Telegram</h1>
+      <p>Please click the button below to login with Telegram.</p>
+      <div
+        className="telegram-login"
+        data-telegram-login="YOUR_BOT_USERNAME"
+        data-size="large"
+        data-auth-url="http://localhost:8000/auth/telegram"
+        data-request-access="write"
+      ></div>
       <script
         async
         src="https://telegram.org/js/telegram-widget.js?7"
-        data-telegram-login="YOUR_BOT_USERNAME"
-        data-size="large"
-        data-auth-url="/auth/telegram"
-        data-request-access="write"
       ></script>
     </div>
   );
