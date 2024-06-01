@@ -1,44 +1,39 @@
 import React, { useEffect } from 'react';
-import UserProfile from './UserProfile';
 
 const TelegramAuth = () => {
   useEffect(() => {
-    window.TelegramLoginWidget = {
-      dataOnauth: (user) => {
-        fetch('/auth/telegram', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(user),
-        })
-          .then(response => response.json())
-          .then(data => {
-            localStorage.setItem('token', data.access_token);
-            window.location.href = '/products';
-          })
-          .catch(error => {
-            console.error('Error:', error);
-          });
+    const initData = window.Telegram.WebApp.initData;
+
+    fetch('http://localhost:8000/auth/telegram', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-    };
+      body: JSON.stringify({ initData }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.access_token) {
+          localStorage.setItem('token', data.access_token);
+          window.Telegram.WebApp.sendData(JSON.stringify({ status: 'success' }));
+          window.location.href = '/profile';
+        } else {
+          console.error('Authentication failed');
+          window.Telegram.WebApp.sendData(JSON.stringify({ status: 'failure' }));
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        window.Telegram.WebApp.sendData(JSON.stringify({ status: 'failure' }));
+      });
+
+    // Telegram WebApp is ready
+    window.Telegram.WebApp.ready();
   }, []);
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>Login with Telegram</h1>
-      <UserProfile />
-      <div
-        className="telegram-login"
-        data-telegram-login="YOUR_BOT_USERNAME"
-        data-size="large"
-        data-auth-url="http://localhost:8000/auth/telegram"
-        data-request-access="write"
-      ></div>
-      <script
-        async
-        src="https://telegram.org/js/telegram-widget.js?7"
-      ></script>
+      <h1>Authenticating...</h1>
     </div>
   );
 };
