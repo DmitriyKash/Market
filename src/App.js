@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import TelegramAuth from './TelegramAuth';
-import ProductList from './ProductList';
+import TelegramAuth from './components/TelegramAuth';
+import ProductList from './components/ProductList';
 
 const App = () => {
   return (
