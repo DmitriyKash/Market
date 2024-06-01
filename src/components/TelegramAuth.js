@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import UserProfile from './UserProfile';
 
 const TelegramAuth = () => {
   useEffect(() => {
@@ -26,7 +27,7 @@ const TelegramAuth = () => {
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <h1>Login with Telegram</h1>
-      <p>Please click the button below to login with Telegram.</p>
+      <UserProfile />
       <div
         className="telegram-login"
         data-telegram-login="YOUR_BOT_USERNAME"
