@@ -14,23 +14,23 @@
         window.Telegram.WebApp.ready();
 
         // Пример приветствия пользователя
-        const user = window.Telegram.WebApp.initDataUnsafe.user;
-        if (user) {
-            alert(`Добро пожаловать, @${user.username}!`);
-        }
+        // const user = window.Telegram.WebApp.initDataUnsafe.user;
+        // if (user) {
+        //     alert(`Добро пожаловать, @${user.username}!`);
+        // }
 
-        var WebApp = window.Telegram.WebApp;
+        // var WebApp = window.Telegram.WebApp;
 
-        WebApp.onEvent('themeChanged', function() {
-            document.body.style.backgroundColor = WebApp.themeParams.bg_color;
-        });
+        // WebApp.onEvent('themeChanged', function() {
+        //     document.body.style.backgroundColor = WebApp.themeParams.bg_color;
+        // });
 
-        WebApp.onEvent('mainButtonClicked', function() {
-            WebApp.showAlert("Main button clicked!");
-        });
+        // WebApp.onEvent('mainButtonClicked', function() {
+        //     WebApp.showAlert("Main button clicked!");
+        // });
 
-        WebApp.MainButton.show();
-        WebApp.MainButton.setText("Click me!");
+        // WebApp.MainButton.show();
+        // WebApp.MainButton.setText("Click me!");
     </script>
     
 </body>
