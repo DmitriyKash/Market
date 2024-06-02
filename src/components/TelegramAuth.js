@@ -27,7 +27,6 @@ const TelegramAuth = () => {
         window.Telegram.WebApp.sendData(JSON.stringify({ status: 'failure' }));
       });
 
-    // Telegram WebApp is ready
     window.Telegram.WebApp.ready();
   }, []);
 
