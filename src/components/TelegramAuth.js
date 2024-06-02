@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import UserProfile from './UserProfile';
 
 const TelegramAuth = () => {
   useEffect(() => {
@@ -34,6 +35,7 @@ const TelegramAuth = () => {
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <h1>Authenticating...</h1>
+      <UserProfile />
     </div>
   );
 };
