@@ -3,10 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Mini App</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>Telegram Web App</title>
 </head>
 <body>
-    <div id="root"></div>
+    <h1 id="welcome-message">Welcome!</h1>
+    <script>
+        var WebApp = window.Telegram.WebApp;
+
+        WebApp.onEvent('themeChanged', function() {
+            document.body.style.backgroundColor = WebApp.themeParams.bg_color;
+        });
+
+        WebApp.onEvent('mainButtonClicked', function() {
+            WebApp.showAlert("Main button clicked!");
+        });
+
+        WebApp.MainButton.show();
+        WebApp.MainButton.setText("Click me!");
+
+        WebApp.showAlert(`Welcome, @${WebApp.initDataUnsafe.user.username}`);
+    </script>
 </body>
 </html>
