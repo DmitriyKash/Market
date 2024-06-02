@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TelegramAuth from './components/TelegramAuth';
 import ProductList from './components/ProductList';
 import UserProfile from './components/UserProfile';
+import Home from './components/Home';
 
 const App = () => {
   useEffect(() => {
@@ -22,7 +23,7 @@ const App = () => {
         <Route path="/auth" element={<TelegramAuth />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/profile" element={<UserProfile />} />
-        <Route path="/" element={<TelegramAuth />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </Router>
   );
