@@ -8,7 +8,7 @@ const App = () => {
   useEffect(() => {
     window.Telegram.WebApp.expand();
     window.Telegram.WebApp.ready();
-    
+
     // Пример приветствия пользователя
     const user = window.Telegram.WebApp.initDataUnsafe.user;
     if (user) {
