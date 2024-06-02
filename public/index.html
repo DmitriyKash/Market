@@ -9,6 +9,15 @@
 <body>
     <h1 id="welcome-message">Welcome!</h1>
     <script>
+        window.Telegram.WebApp.expand();
+        window.Telegram.WebApp.ready();
+
+        // Пример приветствия пользователя
+        const user = window.Telegram.WebApp.initDataUnsafe.user;
+        if (user) {
+            alert(`Добро пожаловать, @${user.username}!`);
+        }
+
         var WebApp = window.Telegram.WebApp;
 
         WebApp.onEvent('themeChanged', function() {
@@ -21,8 +30,6 @@
 
         WebApp.MainButton.show();
         WebApp.MainButton.setText("Click me!");
-
-        WebApp.showAlert(`Welcome, @${WebApp.initDataUnsafe.user.username}`);
     </script>
 </body>
 </html>
