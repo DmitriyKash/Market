@@ -4,7 +4,7 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('/products', {
+    fetch('http://localhost:8000/products', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
